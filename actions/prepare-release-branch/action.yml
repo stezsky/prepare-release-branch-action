@@ -71,4 +71,5 @@ runs:
         fi
     - name: Push release branch
       run: |
-        git push origin ${RELEASE_BRANCH_NAME}
+        echo "Pushing release branch ${RELEASE_BRANCH_NAME}"
+        #git push origin ${RELEASE_BRANCH_NAME} ##FIXME

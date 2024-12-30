@@ -1,6 +1,6 @@
 {
   "repository": {
-    "default_branch": "develop"
+    "default_branch": "main"
   },
   "ref": "refs/tags/v1.0.0"
 }

@@ -1,1 +1,3 @@
 --pull=false
+--env https_proxy=http://proxycz.oskarmobil.cz:3128
+--env http_proxy=http://proxycz.oskarmobil.cz:3128

@@ -1,0 +1,11 @@
+name: 'Setup Maven Build'
+description: 'Setup build environment for Maven/Java'
+author: 'petr.steckovic@vodafone.com'
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+        cache: 'maven'
