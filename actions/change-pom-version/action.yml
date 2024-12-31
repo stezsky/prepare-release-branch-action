@@ -18,6 +18,7 @@ runs:
         mvn enforcer:enforce -Drules=requireReleaseDeps
     - name: Commit version change
       run: |
+        echo "Committing new version: ${{ github.event.inputs.new-version }}"
         if [[ "${{ github.event.inputs.new-version }}" == *SNAPSHOT* ]]; then
           git commit -am "[Release bot] Snapshot version bumped to ${{ github.event.inputs.new-version }}"
         else
