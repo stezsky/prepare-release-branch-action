@@ -51,7 +51,7 @@ runs:
                 </proxy>
               </proxies>
               </settings>
-          EOF
+        EOF
         else
           echo "No proxy set"
         fi
