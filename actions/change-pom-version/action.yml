@@ -10,7 +10,6 @@ runs:
   steps:
     - name: Set maven version
       run: |
-        echo "AAAAAAA"
         mvn versions:set -DnewVersion=${{ github.event.inputs.new-version }}
         mvn versions:commit
     - name: Validate no SNAPSHOT dependencies
