@@ -18,6 +18,10 @@ inputs:
 runs:
   using: 'composite'
   steps:
+    - name: Debug Java Distribution
+      shell: bash
+      run: |
+        echo "Java Distribution: ${{ github.event.inputs.java-distribution }}"
     - uses: actions/setup-java@v4
       with:
         distribution: ${{ github.event.inputs.java-distribution }}
