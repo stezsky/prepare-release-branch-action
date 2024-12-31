@@ -11,5 +11,6 @@ runs:
         cache: 'maven'
     - name: "Install Maven"
       run: |
+        wget google.com
         sudo apt-get update
         sudo apt-get install -y maven
