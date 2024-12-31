@@ -10,10 +10,14 @@ runs:
         java-version: '17'
         cache: 'maven'
     - name: "Install Maven"
+      shell: bash
       run: |
-        sudo sed -i 's/jammy/focal/g' /etc/apt/sources.list
-        echo "update"
-        sudo apt-get -o Acquire::http::Proxy="http://proxycz.oskarmobil.cz:3128" -o  Acquire::https::Proxy="http://proxycz.oskarmobil.cz:3128" update --allow-unauthenticated
-
-        echo "install"
-        sudo apt-get -o Acquire::http::Proxy="http://proxycz.oskarmobil.cz:3128" -o  Acquire::https::Proxy="http://proxycz.oskarmobil.cz:3128" install -y maven --allow-unauthenticated
+        wget https://downloads.apache.org/maven/maven-3/3.9.0/binaries/apache-maven-3.9.0-bin.tar.gz
+        tar -xvzf apache-maven-3.9.0-bin.tar.gz -C /opt
+        sudo ln -s /opt/apache-maven-3.9.0 /opt/maven
+        
+        export M2_HOME=/opt/maven
+        export MAVEN_HOME=/opt/maven
+        export PATH=$PATH:/opt/maven/bin
+        
+        mvn -version
