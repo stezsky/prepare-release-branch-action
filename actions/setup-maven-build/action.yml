@@ -21,7 +21,7 @@ runs:
     - name: Debug Java Distribution
       shell: bash
       run: |
-        echo "Java Distribution: ${{ github.event.inputs.java-distribution }}"
+        echo "Java Distribution: ${{ inputs.java-distribution }}"
     - uses: actions/setup-java@v4
       with:
         distribution: ${{ github.event.inputs.java-distribution }}
