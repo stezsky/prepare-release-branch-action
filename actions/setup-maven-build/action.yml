@@ -18,11 +18,11 @@ inputs:
 runs:
   using: 'composite'
   steps:
-#    - uses: actions/setup-java@v4
-#      with:
-#        distribution: ${{ inputs.java-distribution }}
-#        java-version: ${{ inputs.java-version }}
-#        cache: 'maven'
+    - uses: actions/setup-java@v4
+      with:
+        distribution: ${{ inputs.java-distribution }}
+        java-version: ${{ inputs.java-version }}
+        cache: 'maven'
     - name: "Install Maven"
       shell: bash
       run: |
@@ -31,18 +31,10 @@ runs:
         wget https://downloads.apache.org/maven/maven-3/${{ inputs.maven-version }}/binaries/apache-maven-${{ inputs.maven-version }}-bin.tar.gz
         tar -xvzf apache-maven-${{ inputs.maven-version }}-bin.tar.gz -C /opt
         sudo ln -s /opt/apache-maven-${{ inputs.maven-version }} /opt/maven
-        
-#        export M2_HOME=/opt/maven
-#        export MAVEN_HOME=/opt/maven
-#        export PATH=$PATH:/opt/maven/bin
 
         echo "export M2_HOME=/opt/maven" >> ~/.bashrc
         echo "export MAVEN_HOME=/opt/maven" >> ~/.bashrc
         echo "export PATH=$PATH:/opt/maven/bin" >> ~/.bashrc
-
-
-#        java -version
-#        mvn -version
     - name: "Verify installation"
       shell: bash
       run: |
