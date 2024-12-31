@@ -10,10 +10,10 @@ runs:
     - name: Setup Maven Build
       id: setup-maven-build
       uses: stezsky/shared-actions/actions/setup-maven-build@main
-#    - name: Checkout release branch
-#      shell: bash
-#      run: |
-#        git checkout ${{ steps.prepare-release-branch.outputs.RELEASE_BRANCH_NAME }}
+    - name: Checkout release branch
+      shell: bash
+      run: |
+        git checkout ${{ steps.prepare-release-branch.outputs.RELEASE_BRANCH_NAME }}
 #    - name: Change release version
 #      id: change-release-version
 #      uses: stezsky/shared-actions/actions/change-pom-version@main
