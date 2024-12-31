@@ -11,6 +11,5 @@ runs:
         cache: 'maven'
     - name: "Install Maven"
       run: |
-        wget google.com
-        sudo apt-get -o Acquire::http::Proxy="http://proxycz.oskarmobil.cz:3128" -o  Acquire::https::Proxy="http://proxycz.oskarmobil.cz:3128" update || true
+        sudo apt-get -o Acquire::http::Proxy="http://proxycz.oskarmobil.cz:3128" -o  Acquire::https::Proxy="http://proxycz.oskarmobil.cz:3128" update --allow-unauthenticated
         sudo apt-get -o Acquire::http::Proxy="http://proxycz.oskarmobil.cz:3128" -o  Acquire::https::Proxy="http://proxycz.oskarmobil.cz:3128" install -y maven
