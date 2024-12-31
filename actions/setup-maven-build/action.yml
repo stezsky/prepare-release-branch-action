@@ -33,7 +33,6 @@ runs:
         echo "M2_HOME=/opt/maven" >> $GITHUB_ENV
         echo "MAVEN_HOME=/opt/maven" >> $GITHUB_ENV
         echo "PATH=$PATH:/opt/maven/bin" >> $GITHUB_ENV
-        env
     - name: "Verify installation"
       shell: bash
       run: |
