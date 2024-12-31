@@ -9,17 +9,15 @@ runs:
   using: 'composite'
   steps:
     - name: Set maven version
-      shell: bash
       run: |
+        echo "AAAAAAA"
         mvn versions:set -DnewVersion=${{ github.event.inputs.new-version }}
         mvn versions:commit
     - name: Validate no SNAPSHOT dependencies
       if: "! contains(github.event.inputs.new-version, 'SNAPSHOT')"
-      shell: bash
       run: |
         mvn enforcer:enforce -Drules=requireReleaseDeps
     - name: Commit version change
-      shell: bash
       run: |
         if [[ "${{ github.event.inputs.new-version }}" == *SNAPSHOT* ]]; then
           git commit -am "[Release bot] Snapshot version bumped to ${{ github.event.inputs.new-version }}"

@@ -15,7 +15,7 @@ runs:
       run: |
         git checkout ${{ steps.prepare-release-branch.outputs.RELEASE_BRANCH_NAME }}
     - name: Change release version
-      id: change-release-version
+      id: change-pom-version
       uses: stezsky/shared-actions/actions/change-pom-version@main
       with:
         new-version: ${{ steps.prepare-release-branch.outputs.VERSION_NUMBER }}
