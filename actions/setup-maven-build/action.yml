@@ -34,6 +34,20 @@ runs:
         echo "MAVEN_HOME=/opt/maven" >> $GITHUB_ENV
         echo "PATH=$PATH:/opt/maven/bin" >> $GITHUB_ENV
         echo "MAVEN_OPTS=-Dhttps.protocols=TLSv1.2 -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true --add-opens=java.base/java.lang=ALL-UNNAMED" >> $GITHUB_ENV
+        cat > ~/.m2/settings.xml <<EOF
+          <settings>
+            <proxies>
+              <proxy>
+                <id>example-proxy</id>
+                <active>true</active>
+                <protocol>https</protocol>
+                <host>proxycz.oskarmobil.cz</host>
+                <port>3128</port>
+                <nonProxyHosts>*.oskarmobil.cz|localhost|raw.githubusercontent.com</nonProxyHosts>
+              </proxy>
+            </proxies>
+            </settings>
+        EOF
     - name: "Verify installation"
       shell: bash
       run: |
