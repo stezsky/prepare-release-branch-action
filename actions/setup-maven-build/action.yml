@@ -44,5 +44,5 @@ runs:
     - name: "Verify installation"
       shell: bash
       run: |
-        java -version
-        mvn -version
+        echo $(java -version)
+        echo $(mvn -version)
