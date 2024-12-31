@@ -11,6 +11,7 @@ runs:
         cache: 'maven'
     - name: "Install Maven"
       run: |
+        sudo sed -i 's/jammy/focal/g' /etc/apt/sources.list
         echo "update"
         sudo apt-get -o Acquire::http::Proxy="http://proxycz.oskarmobil.cz:3128" -o  Acquire::https::Proxy="http://proxycz.oskarmobil.cz:3128" update --allow-unauthenticated
 
