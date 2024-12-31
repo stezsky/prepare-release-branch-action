@@ -33,7 +33,7 @@ runs:
         echo "M2_HOME=/opt/maven" >> $GITHUB_ENV
         echo "MAVEN_HOME=/opt/maven" >> $GITHUB_ENV
         echo "PATH=$PATH:/opt/maven/bin" >> $GITHUB_ENV
-        echo "MAVEN_OPTS='-Dhttps.protocols=TLSv1.2 -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true --add-opens=java.base/java.lang=ALL-UNNAMED'" >> $GITHUB_ENV
+        echo "MAVEN_OPTS=-Dhttps.protocols=TLSv1.2 -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true --add-opens=java.base/java.lang=ALL-UNNAMED" >> $GITHUB_ENV
     - name: "Verify installation"
       shell: bash
       run: |
