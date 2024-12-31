@@ -35,6 +35,8 @@ runs:
         echo "export PATH=$PATH:/opt/maven/bin" >> ~/.bashrc
         
         source ~/.bashrc
+        
+        env
     - name: "Verify installation"
       shell: bash
       run: |
