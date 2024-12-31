@@ -26,8 +26,6 @@ runs:
     - name: "Install Maven"
       shell: bash
       run: |
-        echo "Installing Maven" 
-        exit 13
         wget https://downloads.apache.org/maven/maven-3/${{ inputs.maven-version }}/binaries/apache-maven-${{ inputs.maven-version }}-bin.tar.gz
         tar -xvzf apache-maven-${{ inputs.maven-version }}-bin.tar.gz -C /opt
         sudo ln -s /opt/apache-maven-${{ inputs.maven-version }} /opt/maven
