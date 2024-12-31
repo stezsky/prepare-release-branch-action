@@ -38,7 +38,7 @@ runs:
           <settings>
             <proxies>
               <proxy>
-                <id>example-proxy</id>
+                <id>vfcz-proxy</id>
                 <active>true</active>
                 <protocol>https</protocol>
                 <host>proxycz.oskarmobil.cz</host>

@@ -12,6 +12,7 @@ runs:
   using: 'composite'
   steps:
     - name: Determine version number
+      shell: bash
       run: |
         VERSION_TAG=${GITHUB_REF#refs/tags/}
         VERSION_NUMBER_TAG=${GITHUB_REF#refs/tags/v}
@@ -36,6 +37,7 @@ runs:
       with:
         fetch-depth: 0  # Clone all history
     - name: Determine branches
+      shell: bash
       run: |
         # Determine branch name
         BRANCH_NAMES=$(git branch --contains refs/tags/$VERSION_TAG | grep -v 'HEAD' | sed 's/*//g' | awk '{print $1}')
@@ -53,6 +55,7 @@ runs:
           exit 1
         fi
     - name: Prepare release branch
+      shell: bash
       run: |
         # Checkout or create release branch if not exists
         if git show-ref --verify --quiet refs/heads/${RELEASE_BRANCH_NAME}; then
@@ -63,6 +66,7 @@ runs:
           git checkout -b ${RELEASE_BRANCH_NAME} ${VERSION_TAG}
         fi
     - name: Verify the tag on the last commit of the release branch
+      shell: bash
       run: |
         # Test if release branch is up-to-date with the tag
         if [[ $(git rev-parse HEAD) != $(git rev-parse $VERSION_TAG) ]]; then
@@ -70,6 +74,7 @@ runs:
             exit 1
         fi
     - name: Push release branch
+      shell: bash
       run: |
         echo "Pushing release branch ${RELEASE_BRANCH_NAME}"
         #git push origin ${RELEASE_BRANCH_NAME} ##FIXME
