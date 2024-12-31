@@ -18,11 +18,11 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - uses: actions/setup-java@v4
-      with:
-        distribution: ${{ inputs.java-distribution }}
-        java-version: ${{ inputs.java-version }}
-        cache: 'maven'
+#    - uses: actions/setup-java@v4
+#      with:
+#        distribution: ${{ inputs.java-distribution }}
+#        java-version: ${{ inputs.java-version }}
+#        cache: 'maven'
     - name: "Install Maven"
       shell: bash
       run: |
