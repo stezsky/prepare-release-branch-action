@@ -4,11 +4,6 @@ author: 'petr.steckovic@vodafone.com'
 runs:
   using: 'composite'
   steps:
-    - name: Set up proxy
-      uses: wzieba/act-proxy@v1
-      with:
-        http-proxy: proxycz.oskarmobil.cz:3128
-        https-proxy: proxycz.oskarmobil.cz:3128
     - name: Prepare release branch
       id: prepare-release-branch
       uses: stezsky/shared-actions/actions/prepare-release-branch@main
