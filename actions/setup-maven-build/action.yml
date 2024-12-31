@@ -52,6 +52,8 @@ runs:
               </proxies>
               </settings>
           EOF
+        else
+          echo "No proxy set"
         fi
     - name: "Verify installation"
       shell: bash
